@@ -3,7 +3,7 @@ name: Deploy Space Website to Azure
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:  # Allow manual triggers
+  workflow_dispatch:
 
 jobs:
   deploy-to-azure:
@@ -11,18 +11,10 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
-      
-    - name: Display files being deployed
-      run: |
-        echo "📁 Files to deploy:"
-        ls -la
-        echo "✅ Found $(ls *.html | wc -l) HTML files"
-        echo "✅ Found $(ls *.css | wc -l) CSS files"
-        echo "✅ Found $(ls *.js | wc -l) JS files"
+      uses: actions/checkout@v4  # Updated to v4
     
     - name: Azure Login
-      uses: azure/login@v1
+      uses: azure/login@v2  # Updated to v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     
@@ -40,11 +32,9 @@ jobs:
         echo "Storage Account: $STORAGE_NAME"
         
         # Create resource group
-        echo "📦 Creating resource group..."
         az group create --name $RG_NAME --location eastus
         
         # Create storage account
-        echo "🏗️  Creating storage account..."
         az storage account create \
           --name $STORAGE_NAME \
           --resource-group $RG_NAME \
@@ -54,7 +44,6 @@ jobs:
           --allow-blob-public-access true
         
         # Enable static website
-        echo "🌐 Enabling static website..."
         az storage blob service-properties update \
           --account-name $STORAGE_NAME \
           --static-website \
@@ -62,7 +51,6 @@ jobs:
           --404-document 404.html
         
         # Upload files
-        echo "📤 Uploading files to space..."
         az storage blob upload-batch \
           --account-name $STORAGE_NAME \
           --source . \
@@ -84,14 +72,4 @@ jobs:
       run: |
         echo "Testing website: ${{ env.WEBSITE_URL }}"
         sleep 10
-        curl -I ${{ env.WEBSITE_URL }}
-        
-    - name: Display Success Message
-      run: |
-        echo "╔════════════════════════════════════════╗"
-        echo "║  🎉 DEPLOYMENT SUCCESSFUL!             ║"
-        echo "╚════════════════════════════════════════╝"
-        echo "🌍 Your space website is live at:"
-        echo "${{ env.WEBSITE_URL }}"
-        echo ""
-        echo "📸 Take a screenshot of this URL for your deliverable!"
+        curl -I ${{ env.WEBSITE_URL }} || echo "Website is still propagating, check URL manually: ${{ env.WEBSITE_URL }}"
