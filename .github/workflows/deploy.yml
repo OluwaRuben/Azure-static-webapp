@@ -32,13 +32,13 @@ jobs:
         echo "Storage Account: $STORAGE_NAME"
         
         # Create resource group
-        az group create --name $RG_NAME --location eastus
+        az group create --name $RG_NAME --location italynorth
         
         # Create storage account
         az storage account create \
           --name $STORAGE_NAME \
           --resource-group $RG_NAME \
-          --location eastus \
+          --location italynorth \
           --sku Standard_LRS \
           --kind StorageV2 \
           --allow-blob-public-access true
