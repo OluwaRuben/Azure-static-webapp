@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Lost in Space | Azure Static Site</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .lost-astronaut {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        
+        .lost-astronaut h1 {
+            font-size: 8em;
+            margin: 0;
+            animation: spin 20s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .back-home {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #4ecdc4;
+            color: #0a0f1e;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .back-home:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px #4ecdc4;
+        }
+        
+        .message {
+            font-size: 1.5em;
+            margin: 20px 0;
+            color: #a8e6cf;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <div class="container lost-astronaut">
+        <h1>🌍</h1>
+        <h1 class="glow">404</h1>
+        <div class="message">Houston, we have a problem!</div>
+        <p>The page you're looking for has drifted into deep space.</p>
+        <p style="margin: 20px 0; color: #666;">Error code: PAGE_NOT_FOUND_IN_THIS_SOLAR_SYSTEM</p>
+        <a href="index.html" class="back-home">🚀 Return to Mission Control</a>
+    </div>
+</body>
+</html>

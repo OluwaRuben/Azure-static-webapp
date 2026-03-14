@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Explorer | Azure Static Site</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Stars background effect -->
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <div class="container">
+        <!-- Header with astronaut animation -->
+        <header>
+            <h1 class="glow">🚀 SPACE EXPLORER</h1>
+            <p class="subtitle">Journey Through The Cosmos</p>
+            <div class="astronaut">
+                <div class="helmet"></div>
+                <div class="suit"></div>
+            </div>
+        </header>
+
+        <!-- Main content with planet cards -->
+        <main>
+            <h2>✨ Explore Our Solar System ✨</h2>
+            
+            <div class="planet-grid">
+                <div class="planet-card" onclick="explorePlanet('mercury')">
+                    <div class="planet mercury"></div>
+                    <h3>Mercury</h3>
+                    <p>The Swift Planet</p>
+                </div>
+                
+                <div class="planet-card" onclick="explorePlanet('venus')">
+                    <div class="planet venus"></div>
+                    <h3>Venus</h3>
+                    <p>The Morning Star</p>
+                </div>
+                
+                <div class="planet-card" onclick="explorePlanet('earth')">
+                    <div class="planet earth"></div>
+                    <h3>Earth</h3>
+                    <p>Home Planet</p>
+                </div>
+                
+                <div class="planet-card" onclick="explorePlanet('mars')">
+                    <div class="planet mars"></div>
+                    <h3>Mars</h3>
+                    <p>The Red Planet</p>
+                </div>
+                
+                <div class="planet-card" onclick="explorePlanet('jupiter')">
+                    <div class="planet jupiter"></div>
+                    <h3>Jupiter</h3>
+                    <p>The Giant Planet</p>
+                </div>
+                
+                <div class="planet-card" onclick="explorePlanet('saturn')">
+                    <div class="planet saturn"></div>
+                    <h3>Saturn</h3>
+                    <p>The Ringed Planet</p>
+                </div>
+            </div>
+
+            <!-- Deployment information panel -->
+            <div class="info-panel">
+                <h3>🌍 Mission Control (Deployment Info)</h3>
+                <div class="mission-data">
+                    <p><span class="label">Host:</span> Microsoft Azure Blob Storage</p>
+                    <p><span class="label">Deployed:</span> <span id="deployment-date">Loading...</span></p>
+                    <p><span class="label">Status:</span> <span class="status-active">🟢 Active in Space</span></p>
+                    <p><span class="label">Mission ID:</span> <span id="mission-id"></span></p>
+                </div>
+                <div class="space-fact" id="space-fact">
+                    Click any planet to learn a space fact!
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2024 Space Explorer | Hosted on Azure Static Website</p>
+            <p class="small">Blazing fast cosmic delivery via Azure CDN</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
