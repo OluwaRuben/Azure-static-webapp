@@ -69,7 +69,9 @@ h1 {
     font-size: 3.5em;
     background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
     text-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
     margin-bottom: 10px;
     animation: glow 3s ease-in-out infinite;
@@ -159,6 +161,7 @@ h2 {
 
 .planet-card {
     background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-radius: 15px;
     padding: 20px;
@@ -218,6 +221,7 @@ h2 {
 /* Info Panel */
 .info-panel {
     background: rgba(0, 0, 0, 0.7);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 30px;

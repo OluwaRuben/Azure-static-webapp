@@ -67,9 +67,4 @@ jobs:
         
         echo "✅ DEPLOYMENT COMPLETE!"
         echo "WEBSITE_URL=$URL" >> $GITHUB_ENV
-        
-    - name: Verify Deployment
-      run: |
-        echo "Testing website: ${{ env.WEBSITE_URL }}"
-        sleep 10
-        curl -I ${{ env.WEBSITE_URL }} || echo "Website is still propagating, check URL manually: ${{ env.WEBSITE_URL }}"
+        echo "Website URL: $URL"
